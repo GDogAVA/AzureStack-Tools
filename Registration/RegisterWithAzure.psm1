@@ -219,7 +219,6 @@ function Set-AzsRegistration{
 
     # Set resource group location based on environment
     $CustomResourceGroupLocation = Set-ResourceGroupLocation -AzureEnvironment $AzureContext.Environment.Name -ResourceGroupLocation $ResourceGroupLocation
-    $RegistrationName =  "$RegistrationName-$(Get-Date -Format yyyy-MM-dd)"
     New-RegistrationResource -ResourceGroupName $ResourceGroupName -ResourceGroupLocation $CustomResourceGroupLocation -RegistrationToken $RegistrationToken -RegistrationName $RegistrationName
 
     # Assign custom RBAC role
@@ -572,7 +571,6 @@ Function Register-AzsEnvironment{
 
     $azureAccountInfo = Get-AzureAccountInfo -AzureContext $AzureContext
     $CustomResourceGroupLocation = Set-ResourceGroupLocation -AzureEnvironment $AzureContext.Environment.name -ResourceGroupLocation $ResourceGroupLocation
-    $RegistrationName = "$RegistrationName-$(Get-Date -Format yyyy-MM-dd)"
     New-RegistrationResource -ResourceGroupName $ResourceGroupName -ResourceGroupLocation $CustomResourceGroupLocation -RegistrationToken $RegistrationToken -RegistrationName $RegistrationName
 
     Log-Output "Your Azure Stack environment is now registered with Azure."
