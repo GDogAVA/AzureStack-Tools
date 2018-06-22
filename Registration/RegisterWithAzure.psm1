@@ -179,7 +179,7 @@ function Set-AzsRegistration{
         [string] $AgreementNumber,
 
         [Parameter(Mandatory = $false)]
-        [String] $RegistrationName = "AzureStack"
+        [String] $RegistrationName = "AzureStackRegistration"
     )
     #requires -Version 4.0
     #requires -Modules @{ModuleName = "AzureRM.Profile" ; ModuleVersion = "1.0.4.4"} 
@@ -555,7 +555,7 @@ Function Register-AzsEnvironment{
         [String] $ResourceGroupLocation = 'westcentralus',
 
         [Parameter(Mandatory = $false)]
-        [String] $RegistrationName = "AzureStack"
+        [String] $RegistrationName = "AzureStackRegistration"
     )
     #requires -Version 4.0
     #requires -Modules @{ModuleName = "AzureRM.Profile" ; ModuleVersion = "1.0.4.4"} 
@@ -745,7 +745,7 @@ Function Get-AzsActivationKey{
     param(
         [Parameter(Mandatory = $true)]
         [ValidateNotNullOrEmpty()]
-        [String] $RegistrationName,
+        [String] $RegistrationName = "AzureStackRegistration",
 
         [Parameter(Mandatory = $false)]
         [ValidateNotNullorEmpty()]
